@@ -1,0 +1,2 @@
+<xp-admin-dashboard *ngIf="user && user.role === 'ROLE_ADMIN'"></xp-admin-dashboard>
+<button *ngIf="user && user.role === 'ROLE_ADMIN'" class="btn" (click)="testDos()">TestDOS</button>

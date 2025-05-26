@@ -1,0 +1,40 @@
+form {
+    margin-top:120px;
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    border: 2px solid #eaeaea;
+    border-radius: 24px;
+    padding: 24px;
+    width: 320px;
+    display:flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 8px 0px 4px 0px;
+}
+
+input{
+    border-radius: 12px;
+    border: 1px solid #868686;
+    height: 32px;
+    text-indent: 8px;
+}
+
+button{
+    margin-top: 20px;
+}
+
+.captcha{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.qr-code {
+    width: 256px;
+    height: 256px;
+  }

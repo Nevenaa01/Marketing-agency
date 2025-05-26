@@ -1,0 +1,71 @@
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+    <div class="form-div">
+
+        <div class="radio-container">
+            <input checked class="tab" type="radio" id="radio1" class="tab" name="radioGroup" value="Individual" (change)="onRadioChange($event)"/>
+            <label for="radio1">Individual</label>
+            
+            <input class="tab" type="radio" id="radio2" class="tab" name="radioGroup" value="LegalEntity" (change)="onRadioChange($event)"/>
+            <label for="radio2" style="white-space: nowrap;">Legal Entity</label>
+        </div>
+
+        <div style="display: flex; flex-direction: row; gap: 12px;">
+            <div>
+                <p id="name">Name</p>
+                <input formControlName="name" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['name'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+            </div>
+            <div>
+                <p id="surname">Surname</p>
+                <input formControlName="surname" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['surname'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+            </div>
+        </div>
+
+        <p>Email</p>
+        <input formControlName="email" type="text"/>
+        <p *ngIf="clickedRegister && registrationForm.controls['email'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+
+        <p>Phone number</p>
+        <input formControlName="phoneNumber" type="text"/>
+        <p *ngIf="clickedRegister && registrationForm.controls['phoneNumber'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+
+        <p>Password</p>
+        <input formControlName="password" type="password"/>
+        <p *ngIf="clickedRegister && registrationForm.controls['password'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+        <p *ngIf="clickedRegister && registrationForm.controls['password'].hasError('minlength')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;margin-bottom: 0px;">Password needs to have at least 8 characters!</p>
+        <p *ngIf="clickedRegister && registrationForm.hasError('passwordCriteria')" style="font-size: 12px;margin-top: 4px;line-height: 1.0;color:  red; font-weight: 400;">Password needs to have at least 1 uppercase, 1 lowercase letter and 1 number!</p>
+
+        <p>Confirm Password</p>
+        <input formControlName="confirmPassword" type="password"/>
+        <p *ngIf="clickedRegister && registrationForm.hasError('passwordMismatch')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">Passwords need to match!</p>
+
+        <p id="adress">Adress</p>
+        <input formControlName="adress" type="text"/>
+        <p *ngIf="clickedRegister && registrationForm.controls['adress'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+
+        <div style="display: flex; flex-direction: row; gap: 12px;">
+            <div>
+                <p>City</p>
+                <input formControlName="city" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['city'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+            </div>
+            <div>
+                <p>Country</p>
+                <input formControlName="country" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['country'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+            </div>
+        </div>
+
+        <p>Select package</p>
+        <select formControlName="package" type="text">
+            <option value="Basic">Basic</option>
+            <option value="Standard">Standard</option>
+            <option value="Golden">Golden</option>
+        </select>
+        <p *ngIf="clickedRegister && registrationForm.controls['package'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to select this field!</p>
+    <button class="btn" type="submit">Register</button>
+    </div>
+</form>
+
+

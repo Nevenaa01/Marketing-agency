@@ -1,0 +1,35 @@
+<div class="mx-5 mt-5">
+    <div class="row d-flex justify-content-center">
+        <h1>Create Ad</h1>
+    </div>
+
+    <div class="row">
+        <label class="form-label">Slogan</label>
+        <input required type="text" class="form-control form-input" autocomplete="off" [(ngModel)]="ad.slogan"/>
+    </div><br>
+    <div class="row">
+        <label class="form-label">Description</label>
+        <textarea [disabled]="true" required class="form-control form-input" rows="5" autocomplete="off" [(ngModel)]="ad.description"></textarea>
+    </div><br>
+
+    <div class="row">
+        <label class="form-label">Active from</label>
+        <input [disabled]="true" type="text" class="form-control form-input" autocomplete="off"
+            value="{{formatMillisecondsToDate(ad.posted)}}" />
+    </div><br>
+
+    <div class="row">
+        <label class="form-label">Active to</label>
+        <input [disabled]="true" type="text" class="form-control form-input" autocomplete="off"
+            value="{{formatMillisecondsToDate(ad.duration)}}" />
+    </div><br>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <button mat-raised-button class="cancel-btn" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="col-sm-6">
+            <button mat-raised-button class="update-btn" (click)="create()">Create</button>
+        </div>
+    </div>
+</div>

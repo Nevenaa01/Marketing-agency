@@ -1,0 +1,80 @@
+
+    <form class="my-profile-container" [formGroup]="profileForm">
+        <div class="personal-info">
+            <h1 class="title-personal">
+                <i class="bi bi-file-person-fill"></i>
+                <span class="title-text">Personal information</span>
+            </h1>
+            <div class="name-lastname">
+                <div class="name">
+                    <label for="personalNameInput" class="form-label text-start mt-2">Name</label>
+                    <input formControlName="name" required type="text" class="form-control form-input" autocomplete="off" id="personalNameInput"
+                    [ngClass]="{'red-border':  profileForm.get('name')?.hasError('required') && (profileForm.get('name')?.touched)}"/>
+                </div>
+                <div class="surname">
+                    <label for="personalSurnameInput" class="form-label text-start mt-2">Surname</label>
+                    <input formControlName="surname" required type="text" class="form-control form-input" autocomplete="off" id="personalSurnameInput"
+                    [ngClass]="{'red-border':  profileForm.get('surname')?.hasError('required') && (profileForm.get('surname')?.touched)}"/>
+                </div>
+
+            </div>
+            <div class="email">
+                <label for="personalEmailInput" class="form-label text-start mt-2">Email</label>
+                <input formControlName="email" required type="email" class="form-control form-input" autocomplete="off" id="personalEmailInput"
+                [ngClass]="{'red-border':  profileForm.get('email')?.hasError('required') && (profileForm.get('email')?.touched)}"/>
+
+            </div>
+
+            <div class="email">
+                <label for="personalPhoneNumberInput" class="form-label text-start mt-2">Phone number</label>
+                <input formControlName="phonenumber" required type="text" class="form-control form-input" autocomplete="off" id="personalPhoneNumberInput"
+                [ngClass]="{'red-border':  profileForm.get('phonenumber')?.hasError('required') && (profileForm.get('phonenumber')?.touched)}"/>
+
+            </div>
+
+
+        </div>
+
+        <div class="vertical-separator"></div>
+
+        <div class="adress-info">
+            <h1 class="title-personal">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span class="title-text">Address information</span>
+            </h1>
+            <div class="email">
+                <label for="personalAdressInput" class="form-label text-start mt-2">Address street</label>
+                <input formControlName="address" required type="text" class="form-control form-input" autocomplete="off" id="personalAdressInput"
+                [ngClass]="{'red-border':  profileForm.get('address')?.hasError('required') && (profileForm.get('address')?.touched)}"/>
+
+            </div>
+
+            <div class="name-lastname">
+                <div class="city">
+                    <label for="personalCityInput" class="form-label text-start mt-2">City</label>
+                    <input formControlName="city" required type="text" class="form-control form-input" autocomplete="off" id="personalCityInput"
+                    [ngClass]="{'red-border':  profileForm.get('city')?.hasError('required') && (profileForm.get('city')?.touched)}"/>
+                </div>
+                <div class="country">
+                    <label for="personalCountryInput" class="form-label text-start mt-2">Country</label>
+                    <input formControlName="country" required type="text" class="form-control form-input" autocomplete="off" id="personalCountryInput"
+                    [ngClass]="{'red-border':  profileForm.get('country')?.hasError('required') && (profileForm.get('country')?.touched)}"/>
+                </div>
+
+            </div>
+
+            <div class="btn-container">
+                <button *ngIf="!updateBtn" class="update-btn" (click)="editButton()">Edit</button>
+                <button *ngIf="updateBtn" class="update-btn" (click)="updateButton()">Update</button>
+            </div>
+
+        </div>
+    </form>
+
+    <div class="block-container" *ngIf="goldUser">
+        <p>You are a user with a gold package and have the ability to deactivate your account, which will delete all your data and the data associated with you from the system.</p>
+        <button class="btn deactivate-btn" (click)="deactivateUser()">Deactivate</button>
+    </div>
+
+
+

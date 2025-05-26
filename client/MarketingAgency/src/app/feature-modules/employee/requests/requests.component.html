@@ -1,0 +1,21 @@
+<div class="show-requests">
+    <h1 class="title-create d-flex justify-content-center mt-5 mb-5">Advertisement requests:</h1>
+    <div class="card-container d-flex justify-content-center">
+        <div *ngFor="let request of requests" class="card-wrapper">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>Active advertisement : <b> {{getDateTime(request.activeFrom)}} -
+                            {{getDateTime(request.activeTo)}} </b></mat-card-title>
+                </mat-card-header><br>
+                <mat-card-content>
+                    <p>Description: {{request.description}}</p>
+                </mat-card-content>
+                <mat-card-actions class="mt-auto">
+                    <button mat-button [disabled]="request.adCreated || request.deadlineDate > now" class="button" (click)="createAd(request)">Create
+                        add</button>
+                    <p class="mx-2 mt-2">Deadline date: {{getDateTime(request.deadlineDate)}}</p>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

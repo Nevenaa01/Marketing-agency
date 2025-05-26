@@ -1,0 +1,224 @@
+<div class="wrapper">
+
+    <div [ngStyle]="{ display: showPopup ? 'block' : 'none' }" class="pop-up-wrapper">
+
+        <form [formGroup]="registrationForm" (ngSubmit)="register()">
+            <div class="form-div">
+
+                <div id="form-header" style="font-size: 20px;font-weight: 600;color: orangered;margin-bottom: 24px;">Add New admin</div>
+        
+                <div style="display: flex; flex-direction: row; gap: 12px;">
+                    <div>
+                        <p id="name">Name</p>
+                        <input formControlName="name" type="text"/>
+                        <p *ngIf="clickedRegister && registrationForm.controls['name'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                    </div>
+                    <div>
+                        <p id="surname">Surname</p>
+                        <input formControlName="surname" type="text"/>
+                        <p *ngIf="clickedRegister && registrationForm.controls['surname'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                    </div>
+                </div>
+        
+                <p class="email">Email</p>
+                <input class="email" formControlName="email" type="text"/>
+                <p class="email" *ngIf="clickedRegister && registrationForm.controls['email'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+        
+                <p>Phone number</p>
+                <input formControlName="phoneNumber" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['phoneNumber'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+        
+                <div class="email">
+                <p>Password</p>
+                <input formControlName="password" type="password"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['password'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                <p *ngIf="clickedRegister && registrationForm.controls['password'].hasError('minlength')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;margin-bottom: 0px;">Password needs to have at least 8 characters!</p>
+                <p *ngIf="clickedRegister && registrationForm.hasError('passwordCriteria')" style="font-size: 12px;margin-top: 4px;line-height: 1.0;color:  red; font-weight: 400;">Password needs to have at least 1 uppercase, 1 lowercase letter and 1 number!</p>
+        
+                <p>Confirm Password</p>
+                <input formControlName="confirmPassword" type="password"/>
+                <p *ngIf="clickedRegister && registrationForm.hasError('passwordMismatch')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">Passwords need to match!</p>
+        
+                </div>
+                
+                <p id="adress">Adress</p>
+                <input formControlName="adress" type="text"/>
+                <p *ngIf="clickedRegister && registrationForm.controls['adress'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+        
+                <div style="display: flex; flex-direction: row; gap: 12px;">
+                    <div>
+                        <p>City</p>
+                        <input formControlName="city" type="text"/>
+                        <p *ngIf="clickedRegister && registrationForm.controls['city'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                    </div>
+                    <div>
+                        <p>Country</p>
+                        <input formControlName="country" type="text"/>
+                        <p *ngIf="clickedRegister && registrationForm.controls['country'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                    </div>
+                </div>
+        
+            <button id="form-btn" style="margin-top: 24px;" class="btn" type="submit">Register</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div [ngStyle]="{ display: showChangePassword ? 'block' : 'none' }" class="pop-up-wrapper">
+
+        <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+            <div class="form-div">
+
+                <div id="form-header" style="font-size: 20px;font-weight: 600;color: orangered;margin-bottom: 24px;">Enter New Password</div>
+        
+            
+                <div>
+                <p>New Password</p>
+                <input formControlName="password" type="password"/>
+                <p *ngIf=" changePasswordForm.controls['password'].hasError('required')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">You need to fill this field!</p>
+                <p *ngIf=" changePasswordForm.controls['password'].hasError('minlength')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;margin-bottom: 0px;">Password needs to have at least 8 characters!</p>
+                <p *ngIf=" changePasswordForm.hasError('passwordCriteria')" style="font-size: 12px;margin-top: 4px;line-height: 1.0;color:  red; font-weight: 400;">Password needs to have at least 1 uppercase, 1 lowercase letter and 1 number!</p>
+        
+                <p>Confirm Password</p>
+                <input formControlName="confirmPassword" type="password"/>
+                <p *ngIf=" changePasswordForm.hasError('passwordMismatch')" style="font-size: 12px;margin-top: 4px;color: red; font-weight: 400;">Passwords need to match!</p>
+        
+                </div>
+        
+            <button id="form-btn" style="margin-top: 24px;" class="btn" type="submit">Finish</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div [ngStyle]="{ filter: showPopup || showChangePassword ? 'blur(2px)' : 'none' }" class="overlay">
+
+        <div class="upper-row">
+
+            <div class="profile-info-btn-wrapper">
+    
+                <div class=" border profile-info-wrapper" *ngIf="loggedUser">
+    
+                    <div class="title profile-info-row">
+                        <div >Administrator</div>
+                        <div><button (click)="addNewAdmin('update')"  class="btn">Edit</button></div>
+                    </div>
+        
+                    <div class="profile-info-row">
+                        <div>Name & Surname:</div>
+                        <div>{{loggedUser.name + ' ' + loggedUser.surname}}</div>
+                    </div>
+        
+                    <div class="profile-info-row">
+                        <div>Email:</div>
+                        <div>{{loggedUser.email}}</div>
+                    </div>
+        
+                    <div class="profile-info-row">
+                        <div>City & Country:</div>
+                        <div>{{loggedUser.city+ ', ' + loggedUser.country}}</div>
+                    </div>
+        
+                    <div class="profile-info-row">
+                        <div>Phone:</div>
+                        <div>{{loggedUser.phoneNumber}}</div>
+                    </div>
+        
+                    <div class="profile-info-row">
+                        <div>Address:</div>
+                        <div>{{loggedUser.adress}}</div>
+                    </div>
+        
+                </div>
+    
+                <button (click)="addNewAdmin('add')" class="btn add-admin-btn">Add new Administrator</button>
+                <button (click)="changePassword(); showChangePassword=!showChangePassword" style="margin-inline: 12px;" class="btn">Change password</button>
+    
+            </div>
+    
+            <div class="clients-wrapper">
+                <div class="clients-title">Clients</div>
+    
+    
+                <div class="clients-list">
+                    <div *ngFor="let c of clients" class="border">
+                        <div class="client-card">
+
+                            <div class="client-info-wrapper">
+        
+                                <div [style.color]="getColorBasedOnPackageType(c.packageType.toString())">{{c.name + ' ' + c.surname}}</div>
+                                <div>{{c.adress}}</div>
+                                <div>{{c.email}}</div>
+                                
+                            </div>
+            
+                            <div *ngIf="c.status.toString() == 'PENDING'" class="client-btn-wrapper">
+                                <button (click)="approveUser(c)" class="btn">Approve</button>
+                                <button (click)="c.clickedApproved = !c.clickedApproved" class="btn">Deny</button>
+                            </div>
+
+                            <button *ngIf="c.status.toString() == 'REJECTED'" (click)="unblockUser(c)" class="btn unblock-btn">Unblock</button>
+                        </div>
+
+                        <div class="transition-wrapper" [style.height.px]="c.clickedApproved ? 100 : 0">
+
+                            <div style="flex: 1;" *ngIf="c.clickedApproved">
+                                <h2>Write a report</h2>
+                                <input placeholder="Type text here...." class="report-input client-report" rows="1"/>
+                            </div>
+                            <button (click)="denyUser('.client-report', c)" style="margin-left: auto; margin-block: auto;margin-right: calc(24px);" class="btn">Finish</button>
+                        </div>
+        
+                    </div>
+        
+                </div>
+    
+            </div>
+    
+        </div>
+    
+        <div class="border lower-row">
+            <div class="moderator-wrapper">
+                <div class="clients-title ">Moderators</div>
+    
+    
+                <div class="moderator-list ">
+                    <div *ngFor="let m of moderators" class=" moderator-card  bottom-line">
+    
+                            <div>
+
+                                <div class="moderator-info-wrapper">
+            
+                                    <div [style.color]="m.status.toString() == 'REJECTED' ? 'crimson' : 'black'" >{{m.name + ' ' + m.surname}}</div>
+                                    <div>{{m.adress}}</div>
+                                    <div>{{m.email}}</div>
+                                    <div>{{m.country +', '+ m.city}}</div>
+                                    
+                                </div>
+                
+                                <div *ngIf="m.status.toString() == 'PENDING'" class="client-btn-wrapper">
+                                    <button (click)="approveUser(m)" class="btn">Approve</button>
+                                    <button (click)="m.clickedApproved = !m.clickedApproved" class="btn">Deny</button>
+                                </div>
+    
+                                <button *ngIf="m.status.toString() == 'REJECTED'" (click)="unblockUser(m)" class="btn unblock-btn">Unblock</button>
+                        
+    
+                            </div>
+    
+                        <div [style.padding-inline-start] = "m.clickedApproved ? 'calc(24px + 16px);' : '0'" class="transition-wrapper" [style.height.px]="m.clickedApproved ? 100 : 0" [style.width.px]="m.clickedApproved ? 400 : 0">
+
+                            <div style="flex: 1;" *ngIf="m.clickedApproved">
+                                <h2>Write a report</h2>
+                                <input placeholder="Type text here...." class="report-input moderator-report" rows="1"/>
+                            </div>
+                            <button (click)="denyUser('.moderator-report', m)" style="margin-left: auto; margin-block: auto;margin-right: calc(24px);" class="btn">Finish</button>
+                        </div>
+        
+                    </div>
+    
+            </div>
+        </div>
+        </div>
+        
+</div>

@@ -1,0 +1,45 @@
+form {
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-div {
+    border: 2px solid #eaeaea;
+    border-radius: 24px;
+    padding: 24px;
+    width: 320px;
+    display:flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 8px 0px 4px 0px;
+}
+
+input, select{
+    border-radius: 12px;
+    border: 1px solid #868686;
+    height: 32px;
+    text-indent: 8px;
+    width: 100%;
+}
+
+
+
+button{
+    margin-top: 24px;
+}
+
+.tab{
+    accent-color: #000;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-inline: auto;
+    margin-bottom: 24px;
+}

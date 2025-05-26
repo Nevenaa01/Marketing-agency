@@ -1,0 +1,16 @@
+<nav>
+    <div>
+        <p class="title" [routerLink]="['home']">Marketing Agency</p>
+        <div id="buttons">
+            <button class="nav-btn" *ngIf="user && user.role === 'ROLE_USER'" [routerLink]="['your-advertisement']">Your advertisement</button>
+            <button class="nav-btn" *ngIf="user && user.role === 'ROLE_MODERATOR'" [routerLink]="['employee-profile/' + user.id]">My profile</button>
+            <button class="nav-btn" *ngIf="user && user.role === 'ROLE_MODERATOR'" [routerLink]="['requests']">Requests</button>
+            <button class="nav-btn" *ngIf="user && user.role === 'ROLE_USER'" [routerLink]="['create-request']">Requests</button>
+            <button class="nav-btn" *ngIf="user && user.role === 'ROLE_USER'" [routerLink]="['user-profile/' + user.id]">My profile</button>
+            <button class="nav-btn" *ngIf="user && user.role === ''" [routerLink]="['login']">Login</button>
+            <button class="nav-btn" *ngIf="user && user.role !== ''" (click)="getVpnMessage()">VPN message</button>
+            <button class="nav-btn" *ngIf="user && user.role !== ''" (click)="onLogout()">Logout</button>
+            <button class="nav-btn" [routerLink]="['home']">Home</button>
+        </div>
+    </div>
+</nav>

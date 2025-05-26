@@ -1,0 +1,45 @@
+.permissions-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 90%;
+}
+
+.user-permissions{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+}
+
+.moderator-permissions{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+}
+
+.admin-permissions{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+}
+
+.user-permission-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 2% 10%
+  }
+  
+  .user-permission-table th, .user-permission-table td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .user-permission-table thead {
+    background-color: orange;;
+    color: #fff;
+  }
+

@@ -1,0 +1,151 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+
+.my-profile-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+    margin: 0% 15%;
+}
+
+.personal-info{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+}
+
+.title-personal{
+    margin: 0% auto;
+}
+
+.name-lastname {
+    display: flex;
+    flex-direction: row;
+    margin: 3% 10%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.name,
+.surname {
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input{
+    height: 35px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 1px solid #868686;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+    margin: 3% 10%;
+}
+
+
+.adress-info{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+}
+
+.city{
+    display: flex;
+    flex-direction: column;
+}
+
+.country{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.vertical-separator {
+    border-left: 1px solid #000; 
+    height: 80%; 
+}
+
+
+.title-personal {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 700; 
+    color: #000; 
+    display: flex; 
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.title-text {
+    font-size: 1.8rem; 
+    margin-left: 10px; 
+}
+
+.update-btn{
+    padding-inline: 32px;
+    padding-block: 12px;
+    border-radius: 12px;
+    border: none;
+    transition: background-color 250ms;
+    font-size: 14px;
+    font-weight: 600;
+    width: 20%;
+    cursor: pointer;
+}
+
+.update-btn:hover{
+    background-color: #eaeaea;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: flex-end;
+    margin: 15% 10%;
+}
+
+.red-border{
+    border: 1px solid red;
+}
+
+.block-container{
+    width: 60%;
+    height: auto;
+    margin: 0% 20%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color:gainsboro;
+    display: flex;
+    flex-direction: row;
+}
+
+.block-container p{
+    align-items: center;
+    padding: 4%;
+    font-size: 20px;
+    width: 80%;
+}
+
+.block-container button{
+    align-items: center;
+}
+
+.deactivate-btn{
+    background-color: gray;
+    color: white;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.deactivate-btn:hover{
+    background-color: #3d3d3d;
+}

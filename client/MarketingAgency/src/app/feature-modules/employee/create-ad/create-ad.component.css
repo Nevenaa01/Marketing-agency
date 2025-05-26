@@ -1,0 +1,28 @@
+.update-btn{
+    padding-inline: 32px;
+    padding-block: 12px;
+    border-radius: 12px;
+    border: none;
+    transition: background-color 250ms;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    background-color: #ffd166 !important;
+}
+
+.update-btn:hover{
+    background-color: #ffca3a !important;
+}
+
+.cancel-btn{
+    padding-inline: 32px;
+    padding-block: 12px;
+    border-radius: 12px;
+    border: none;
+    transition: background-color 250ms;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+<div class="advertisement-container">
+    <h1 class="title-advertisement">Your advertisement:</h1>
+    <div class="your-advertisement" *ngFor="let ya of yourAdvertisement" >
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{ya.slogan}}</mat-card-title>
+                    <mat-card-subtitle>{{ya.clientName}}</mat-card-subtitle>
+                </mat-card-header><br>
+                <mat-card-content>
+                    <p>{{ya.description}}</p>
+                </mat-card-content>
+                <mat-card-actions class="mt-auto">
+                    <p class="mx-2">from - {{formatMillisecondsToDate(ya.posted)}}</p>
+                    <p>to - {{formatMillisecondsToDate(ya.duration)}}</p>
+                </mat-card-actions>
+            </mat-card>
+        
+
+    </div>
+
+</div>

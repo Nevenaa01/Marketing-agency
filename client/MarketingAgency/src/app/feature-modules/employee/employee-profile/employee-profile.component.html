@@ -1,0 +1,95 @@
+<div class="row mx-5 mt-5">
+    <div class="col-sm-4">
+        <div class="row d-flex justify-content-center">
+            <h1>Employee info</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="form-label">Name</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.name" />
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Surname</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.surname" />
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="form-label">Email</label>
+                <input [disabled]="true" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.email" />
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="form-label">Phone number</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.phoneNumber" />
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="form-label">City</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.city" />
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Country</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.country" />
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="form-label">Address</label>
+                <input [disabled]="!edit" required type="text" class="form-control form-input" autocomplete="off"
+                    [(ngModel)]="employee.adress" />
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <button mat-raised-button *ngIf="!edit" class="update-btn" (click)="enableEditing()">Edit</button>
+                <button mat-raised-button *ngIf="edit" class="update-btn" (click)="update()">Update</button>
+            </div>
+        </div>
+
+        <div class="block-container" *ngIf="goldUser">
+            <p>You are a user with a gold package and have the ability to deactivate your account, which will delete all your data and the data associated with you from the system.</p>
+            <button class="btn deactivate-btn" (click)="deactivateUser()">Deactivate</button>
+        </div>
+    </div>
+    <div class="col-sm-8 w-100">
+        <div class="row d-flex justify-content-center">
+            <h1>Published ads</h1>
+        </div>
+
+        <div class="row">
+            <div class="card-container d-flex justify-content-center">
+                <div *ngFor="let ad of ads" class="card-wrapper">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>{{ad.slogan}}</mat-card-title>
+                            <mat-card-subtitle>{{ad.clientName}}</mat-card-subtitle>
+                        </mat-card-header><br>
+                        <mat-card-content>
+                            <p>{{ad.description}}</p>
+                        </mat-card-content>
+                        <mat-card-actions class="mt-auto">
+                            <button mat-button class="button">VIEW</button>
+                            <p class="mx-2">from - {{formatMillisecondsToDate(ad.posted)}}</p>
+                            <p>to - {{formatMillisecondsToDate(ad.duration)}}</p>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
